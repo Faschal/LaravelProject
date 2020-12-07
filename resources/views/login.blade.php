@@ -22,11 +22,17 @@
               @csrf
               <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="email">
+                <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
+                @error('email')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="password" class="form-control @error('password') border-danger @enderror" id="password" name="password">
+                @error('password')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>

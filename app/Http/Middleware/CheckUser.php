@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+
+class CheckUser
+{
+    public function handle(Request $request, Closure $next)
+    {
+        echo "CheckUser Middleware";
+        
+        return $next($request);
+    }
+}

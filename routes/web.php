@@ -23,5 +23,5 @@ Route::get('/delete-post/{id}', [ClientController::class, 'deletePost'])->name('
 
 Route::get('/fluent-string', [FluentController::class, 'index'])->name('fluent.index');
 
-Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+Route::get('/login', [LoginController::class, 'index'])->name('login.index')->middleware('checkuser');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
