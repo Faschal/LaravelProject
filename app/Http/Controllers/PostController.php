@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -68,5 +69,12 @@ class PostController extends Controller
         $request = DB::table('users')->leftjoin('posts','users.id', '=', 'posts.user_id')->get();
 
         return $request;
+    }
+
+    public function getAllPostsUsingModel()
+    {
+        $posts = Post::all();
+
+        return $posts;
     }
 }
