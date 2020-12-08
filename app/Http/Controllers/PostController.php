@@ -55,4 +55,18 @@ class PostController extends Controller
 
         return back()->with('post-update', 'Post has been updated');
     }
+
+    public function innerJoin() 
+    {
+        $request = DB::table('users')->join('posts','users.id', '=', 'posts.user_id')->select('users.name', 'posts.title', 'posts.body')->get();
+
+        return $request;
+    }
+
+    public function leftJoin() 
+    {
+        $request = DB::table('users')->leftjoin('posts','users.id', '=', 'posts.user_id')->get();
+
+        return $request;
+    }
 }
