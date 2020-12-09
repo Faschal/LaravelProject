@@ -10,6 +10,7 @@ use App\Http\Controllers\FLuentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PaginationController;
 
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
 
@@ -59,3 +60,5 @@ Route::get('/about', function(){
 Route::get('/contact', function(){
   return view('contact');
 });
+
+Route::get('/users', [PaginationController::class, 'allUser']);
