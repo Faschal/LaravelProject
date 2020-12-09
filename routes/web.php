@@ -13,7 +13,7 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
 
-Route::get('/home/{name?}', [HomeController::class, 'index'])->name('home.index');
+// Route::get('/home/{name?}', [HomeController::class, 'index'])->name('home.index');
 
 Route::get('/users', [UserController::class, 'index'])->name('user.index');
 
@@ -43,3 +43,19 @@ Route::get('/inner-join', [PostController::class, 'innerJoin'])->name('post.inne
 Route::get('/left-join', [PostController::class, 'leftJoin'])->name('post.leftjoin');
 
 Route::get('/all-posts', [PostController::class, 'getAllPostsUsingModel'])->name('post.getallpostmodel');
+
+Route::get('/test', function(){
+  return view('test');
+});
+
+Route::get('/home', function(){
+  return view('index');
+});
+
+Route::get('/about', function(){
+  return view('about');
+});
+
+Route::get('/contact', function(){
+  return view('contact');
+});
