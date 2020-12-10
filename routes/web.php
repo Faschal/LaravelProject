@@ -12,11 +12,13 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PaginationController;
 use App\Http\Controllers\UploadController;
+use App\PaymentGateway\Payment;
+use App\Http\Controllers\MailController;
 
-Route::get('/{locale}', function($locale) {
-  App::setLocale($locale);
-  return view('welcome');
-});
+// Route::get('/{locale}', function($locale) {
+//   App::setLocale($locale);
+//   return view('welcome');
+// });
 
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
 
@@ -72,3 +74,9 @@ Route::get('/users', [PaginationController::class, 'allUser']);
 Route::get('/upload', [UploadController::class, 'uploadForm']);
 
 Route::post('/upload', [UploadController::class, 'uploadFile'])->name('upload.uploadfile');
+
+Route::get('/payment', function() {
+  return Payment::process();
+});
+
+Route::get('/send-email', [MailController::class, 'sendEmail']);
