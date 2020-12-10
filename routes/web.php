@@ -11,6 +11,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PaginationController;
+use App\Http\Controllers\UploadController;
 
 Route::get('/', [ProductController::class, 'index'])->name('product.index');
 
@@ -62,3 +63,7 @@ Route::get('/contact', function(){
 });
 
 Route::get('/users', [PaginationController::class, 'allUser']);
+
+Route::get('/upload', [UploadController::class, 'uploadForm']);
+
+Route::post('/upload', [UploadController::class, 'uploadFile'])->name('upload.uploadfile');
